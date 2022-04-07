@@ -5,8 +5,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed;
     
     private CharacterController cc;
-
-
+    
     private Vector3 movement;
 
     // Start is called before the first frame update
@@ -18,13 +17,13 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");       
+        float h = Input.GetAxisRaw("Horizontal_One");
+        float v = Input.GetAxisRaw("Vertical_One");       
         
-        movement.x = h * speed * Time.deltaTime;        
-        movement.z = v * speed * Time.deltaTime;
+        movement.x = v * speed * Time.deltaTime;        
+        movement.z = h * speed * Time.deltaTime;
 
         cc.Move(movement);
     }
